@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
 
-    "test": "cypress run",
-    "build": "echo 'No build step required'"
+    "test": "cypress run"
+   
   },
   "keywords": [],
   "author": "",
