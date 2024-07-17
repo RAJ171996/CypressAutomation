@@ -19,6 +19,7 @@ jobs:
           path: cypress/reports/html/ # or path/to/artifact
 
       - name: Slack Notification
+        if: always()
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
