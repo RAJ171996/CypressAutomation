@@ -26,12 +26,12 @@ jobs:
           status: ${{ job.status }}
           notify_when: 'failure'
           notification_title: '{workflow} has {status_message}'
-          message_format: '{emoji} *{workflow}* {status_message}'
+          message_format: '{emoji} *{workflow}* {status_message} in this repo https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}'
           
         env:
           #SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: 'Test Automation Reports https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}'
-          SLACK_TITLE: Cypress Web Test
+          #SLACK_MESSAGE: 'Test Automation Reports https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}'
+          #SLACK_TITLE: Cypress Web Test
           SLACK_WEBHOOK_URL: ${{ secrets.NEW_WEBHOOK }}
 
       
