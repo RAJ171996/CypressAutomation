@@ -33,6 +33,6 @@ jobs:
           #SLACK_MESSAGE: 'Test Automation Reports https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}'
           
           #SLACK_TITLE: Cypress Web Test
-          SLACK_WEBHOOK: ${{ secrets.NEW_WEBHOOK }}
+          SLACK_WEBHOOK_URL: ${{ secrets.NEW_WEBHOOK }}
 
       
