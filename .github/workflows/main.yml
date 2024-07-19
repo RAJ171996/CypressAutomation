@@ -19,7 +19,7 @@ jobs:
           path: cypress/reports/html/ # or path/to/artifact
 
       - name: Slack Notification
-        if: always()
+        if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_ICON: https://github.com/rtCamp.png?size=48
