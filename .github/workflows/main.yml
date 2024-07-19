@@ -18,19 +18,20 @@ jobs:
           name: Mochawesome Report
           path: cypress/reports/html/ # or path/to/artifact
 
-      - name: Slack Notification
-        if: failure()
+      - name: Slack Notification On Failure
+        if: always()
         uses: rtCamp/action-slack-notify@v2
+        with:
+          status: ${{ job.status }}
+          notify_when: 'failure'
+          notification_title: '{workflow} has {status_message}'
+          message_format: '{emoji} *{workflow}* {status_message} in <{repo-url}|{repo}>'
+          footer: 'Linked to Repo <{repo-url}|{repo}>'
         env:
-          SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: 'Test Automation Reports https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}'
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_SHA: ${{ github.sha }}
-          GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_SERVER_URL: ${{ github.server_url }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          SLACK_TITLE: Cypress Web Test
+          #SLACK_ICON: https://github.com/rtCamp.png?size=48
+          #SLACK_MESSAGE: 'Test Automation Reports https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}'
+          
+          #SLACK_TITLE: Cypress Web Test
           SLACK_WEBHOOK: ${{ secrets.NEW_WEBHOOK }}
 
       
