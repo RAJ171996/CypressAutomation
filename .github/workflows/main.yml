@@ -45,13 +45,13 @@ jobs:
           CYPRESS_RESULT: ${{ job.status }}
           run: |
             if [ "$CYPRESS_RESULT" = "success" ]; then
-              curl -X POST -H 'Content-type: application/json' --data '{
-                "text": "✅ Cypress tests passed!"
-              }' $SLACK_WEBHOOK
+              
+                "text": "✅ Cypress tests passed!" Test Automation Reports generated to view click on this link :- https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}
+              
             else
-              curl -X POST -H 'Content-type: application/json' --data '{
-                "text": "❌ Cypress tests failed. Please check the build for more details."
-              }' $SLACK_WEBHOOK
-            fi
+              
+                "text": "❌ Cypress tests failed. Please check the build for more details." Test Automation Reports generated to view click on this link :- https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}
+              
+            
 
       
