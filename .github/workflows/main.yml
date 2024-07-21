@@ -40,7 +40,7 @@ jobs:
           SLACK_COLOR: ${{ job.status == 'success' && 'good' || 'danger' }}
           SLACK_TITLE: Cypress Testing against MR
           SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: ${{ job.status == 'success' && ':white_check_mark:''✅ Cypress tests passed!' || ':x:''❌ Cypress tests failed. Please check the build for more details.'  }} Test Automation Reports generated to view click on this link :- https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}
+          SLACK_MESSAGE: ${{ job.status == 'success' && '✅ Cypress tests passed !' || '❌ Cypress tests failed. Please check the build for more details.'  }} Test Automation Reports generated to view click on this link :- https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}
           SLACK_WEBHOOK: ${{ secrets.NEW_WEBHOOK }}
 
       
