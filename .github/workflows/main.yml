@@ -37,10 +37,10 @@ jobs:
         if: always()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_COLOR: ${{ job.status == 'pass' || 'failed' }}
+          SLACK_COLOR: ${{ job.status == 'success' && 'passed' || 'failed' }}
           SLACK_TITLE: Cypress Testing against MR
           SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: ${{ job.status == '✅ Cypress tests passed !' || '❌ Cypress tests failed. Please check the build for more details.'  }} https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}
-          SLACK_WEBHOOK: ${{ secrets.NEW_WEBHOOK }}l
+          SLACK_MESSAGE: ${{ job.status == 'success' && '✅ Cypress tests passed !' || '❌ Cypress tests failed. Please check the build for more details.'  }} https://github.com/RAJ171996/CypressAutomation/actions/runs/${{github.run_id}}
+          SLACK_WEBHOOK: ${{ secrets.NEW_WEBHOOK }}
 
       
